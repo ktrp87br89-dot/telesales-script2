@@ -232,6 +232,39 @@
   footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:.86rem}
   footer b{color:var(--ink-soft);font-family:"Kanit";font-weight:600}
 
+  /* ---- part divider + pro tabs ---- */
+  .tabdiv{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 6px 0 12px;font-family:"Kanit";font-weight:600;font-size:.7rem;letter-spacing:.12em;color:var(--gold-deep);white-space:nowrap;text-transform:uppercase}
+  .tabdiv::before{content:"";width:16px;height:1px;background:var(--line)}
+  .tab.pro .ti{color:var(--teal)}
+  .tab.pro.active{background:var(--teal)}
+  .tab.pro.active .ti{color:#9FE5DC}
+
+  /* ---- part banner ---- */
+  .partbar{display:flex;align-items:center;gap:14px;margin:0 0 28px;padding:14px 20px;border-radius:14px;
+    background:linear-gradient(100deg,var(--teal),#0E443F);color:#EAF6F4}
+  .partbar .pn{font-family:"Kanit";font-weight:800;font-size:1.5rem;color:#7FD8CE;line-height:1}
+  .partbar .pt{font-family:"Kanit";font-weight:600;font-size:1.05rem;margin:0}
+  .partbar .ps{font-size:.85rem;color:#BFE3DE;margin:2px 0 0}
+
+  /* ---- tiers (good-better-best) ---- */
+  .tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0 4px}
+  @media(max-width:620px){.tiers{grid-template-columns:1fr}}
+  .tier{border:1px solid var(--line);border-radius:13px;padding:16px;background:#fff;text-align:center}
+  .tier .tname{font-family:"Kanit";font-weight:600;font-size:.98rem;color:var(--muted)}
+  .tier .tdesc{font-size:.86rem;color:var(--ink-soft);margin-top:6px;line-height:1.5}
+  .tier.best{border:2px solid var(--gold);background:var(--gold-tint);position:relative}
+  .tier.best .tname{color:var(--gold-deep)}
+  .tier.best .flag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-family:"Kanit";font-weight:700;font-size:.64rem;letter-spacing:.05em;padding:3px 12px;border-radius:100px;white-space:nowrap}
+
+  /* ---- persona grid ---- */
+  .persona{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:8px 0 2px}
+  @media(max-width:560px){.persona{grid-template-columns:1fr}}
+  .pcard{border:1px solid var(--line);border-radius:13px;padding:15px 16px;background:#fff}
+  .pcard h4{font-family:"Kanit";font-weight:600;font-size:1.04rem;margin:0 0 2px;display:flex;align-items:center;gap:9px}
+  .pcard .ptag{font-size:.8rem;color:var(--teal);font-weight:600;font-family:"Kanit";margin-bottom:8px}
+  .pcard p{margin:0;font-size:.92rem;color:var(--ink-soft)}
+  .pcard p b{color:var(--ink)}
+
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -242,7 +275,7 @@
   <div class="wrap">
     <span class="eyebrow"><span class="dot"></span>บริษัท ๙ สิงห์โบรกเกอร์ จำกัด · ฝ่ายฝึกอบรม</span>
     <h1>คัมภีร์ <span class="hl">Top Sales</span><br>นักขายทางโทรศัพท์สไตล์ไทย</h1>
-    <p class="lead">องค์ความรู้ครบทุกจังหวะของสาย ตั้งแต่ <b>ก่อนกดโทร</b> จนถึง <b>ปิดการขาย</b> — เน้นภาษาพูดจริงของคนไทย นุ่มแต่หนึบ ฟังเป็นมนุษย์ ไม่ใช่หุ่นยนต์อ่านสคริปต์ ใช้ได้จริงบนสายจริง</p>
+    <p class="lead">องค์ความรู้ครบทุกจังหวะของสาย ตั้งแต่ <b>ก่อนกดโทร</b> จนถึง <b>ปิดการขาย</b> — เน้นภาษาพูดจริงของคนไทย นุ่มแต่หนึบ ฟังเป็นมนุษย์ ไม่ใช่หุ่นยนต์อ่านสคริปต์ ใช้ได้จริงบนสายจริง <b>ฉบับสมบูรณ์: ภาค 1 พื้นฐาน–กลาง + ภาค 2 ชั้นลึกระดับ Top Sales</b></p>
     <div class="spine">
       <span class="node"><span class="num">1</span>พร้อมใจ–พร้อมเสียง</span>
       <span class="arrow">→</span>
@@ -272,6 +305,15 @@
       <button class="tab" data-i="6"><span class="ti">06</span>ปิดการขาย</button>
       <button class="tab" data-i="7"><span class="ti">07</span>ขั้นเทพ</button>
       <button class="tab" data-i="8"><span class="ti">08</span>ห้ามทำ &amp; เช็กลิสต์</button>
+      <span class="tabdiv">ภาค 2 · ชั้นลึก</span>
+      <button class="tab pro" data-i="9"><span class="ti">09</span>จิตวิทยา &amp; ราคา</button>
+      <button class="tab pro" data-i="10"><span class="ti">10</span>ถาม–ฟัง–สะท้อนใจ</button>
+      <button class="tab pro" data-i="11"><span class="ti">11</span>อ่านคน &amp; เสียงขั้นเทพ</button>
+      <button class="tab pro" data-i="12"><span class="ti">12</span>เล่าเรื่อง &amp; เร่งด่วน</button>
+      <button class="tab pro" data-i="13"><span class="ti">13</span>ปิด–เพิ่มยอด–ถอย</button>
+      <button class="tab pro" data-i="14"><span class="ti">14</span>กู้สาย &amp; ลูกค้ายาก</button>
+      <button class="tab pro" data-i="15"><span class="ti">15</span>วินัย &amp; พัฒนาตัวเอง</button>
+      <button class="tab pro" data-i="16"><span class="ti">16</span>จริยธรรมสุขภาพ</button>
     </div>
   </div>
 </nav>
@@ -694,6 +736,401 @@
       <label><input type="checkbox"><span class="txt"><b>หลังวางสาย:</b> จดข้อมูลลูกค้า + รีเซ็ตอารมณ์ + กดสายต่อไป</span></label>
     </div>
     <p class="note">เคล็ดลับ: ช่วงฝึกใหม่ๆ ให้พรินต์เช็กลิสต์นี้วางข้างโทรศัพท์ ตรวจทุกสาย พอชำนาญแล้วมันจะกลายเป็นสัญชาตญาณเองครับ</p>
+  </section>
+
+  <!-- ============ 09 จิตวิทยา & ราคา ============ -->
+  <section class="panel" data-p="9">
+    <div class="partbar">
+      <span class="pn">02</span>
+      <div><p class="pt">ภาค 2 · ชั้นลึกระดับ Top Sales</p><p class="ps">ศาสตร์ที่อยู่ในหัว Top Sales รุ่นเก๋า — ฝึกได้เมื่อพื้นฐาน 6 จังหวะแน่นแล้ว</p></div>
+    </div>
+    <div class="sec-head">
+      <div class="sec-kicker">Persuasion Science</div>
+      <h2>จิตวิทยาโน้มน้าว &amp; สถาปัตยกรรมราคา</h2>
+      <p>เบื้องหลังการตัดสินใจซื้อมีหลักจิตวิทยารองรับเสมอ คนไทยอ่อนไหวกับ 3 แรงจูงใจนี้เป็นพิเศษ และ "วิธีวางราคา" ก็สำคัญพอๆ กับตัวเลขราคาเอง</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">①</span>การตอบแทนบุญคุณ (Reciprocity)</h3>
+      <p class="sub">ให้ก่อน แล้วเขาจะอยากตอบแทน — แต่ต้องให้แบบ "พิเศษเฉพาะเขา"</p>
+      <div class="principle">เวลาให้ราคาพิเศษหรือของแถม ต้องพูดให้รู้สึกว่าเรา <b>อุตส่าห์กันไว้ให้เป็นพิเศษ</b> ไม่ใช่ใครๆ ก็ได้ คนไทยจะเกรงใจและอยากตอบแทนด้วยการอุดหนุน</div>
+      <div class="convo">
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span>ตัวนี้<em>ปกติไม่ได้ให้ทุกคนนะครับ</em> แต่คุณพี่เป็นลูกค้าเก่าที่ดูแลกันมานาน ผมเลย<em>กันสิทธิ์นี้ไว้ให้คุณพี่โดยเฉพาะ</em>เลยครับ</div></div>
+      </div>
+      <div class="trick"><span class="ic">🎁</span><div><b>ทริคจาก Trainer:</b> คำว่า "กันไว้ให้" + "เฉพาะคุณพี่" ทำงานกับใจคนไทยแรงมาก เพราะมันสร้างความรู้สึกเป็นหนี้บุญคุณเล็กๆ ที่อยากตอบแทน</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">②</span>การเป็นพวกเดียวกัน (Unity)</h3>
+      <p class="sub">ลึกกว่าความชอบ — คือทำให้เขารู้สึกว่าเรา "อยู่ข้างเดียวกัน"</p>
+      <div class="principle">คนไทยซื้อจาก <b>"คนที่เหมือนเรา / เข้าใจเรา"</b> การเล่าว่าเราก็มีประสบการณ์ร่วม หรือดูแลคนในครอบครัวเรื่องเดียวกัน ทำให้กำแพงพังเร็ว</div>
+      <div class="convo">
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span>เข้าใจเลยครับคุณพี่ <em>ผมก็ดูแลคุณแม่ที่บ้านเรื่องนี้เหมือนกัน</em> เลยพอรู้ว่าของดีๆ ที่ช่วยได้จริงมันหายากแค่ไหน</div></div>
+      </div>
+      <div class="trick"><span class="ic">🤝</span><div><b>ทริคจาก Trainer:</b> ต้องจริงและพอดี อย่าแต่งเรื่องเยอะจนเฝือ แค่จุดร่วมเล็กๆ ที่เชื่อมใจก็พอ เช่น วัยใกล้กัน อาการเหมือนกัน ดูแลพ่อแม่เหมือนกัน</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">③</span>ความน่าเชื่อถือ (Authority)</h3>
+      <p class="sub">วางตัวเป็น "ที่ปรึกษาสุขภาพ" ไม่ใช่คนมาง้อขาย</p>
+      <div class="principle">น้ำเสียงของ <b>ผู้รู้ที่แนะนำ</b> สร้างความเชื่อมั่นมากกว่าน้ำเสียงของคนขอร้องให้ซื้อ พูดด้วยความมั่นใจแบบมีหลัก ลูกค้าจะเชื่อและฝากความไว้ใจ</div>
+      <div class="convo">
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span>ลูกค้าที่อาการแบบคุณพี่ ส่วนใหญ่<em>ผมจะแนะนำให้ทานต่อเนื่องอย่างน้อยเดือนนึง</em>นะครับ ถึงจะเห็นผลชัด อันนี้จากที่ดูแลลูกค้ามาเยอะครับ</div></div>
+      </div>
+      <div class="trick"><span class="ic">🎓</span><div><b>ทริคจาก Trainer:</b> "ที่ปรึกษา" แนะนำสิ่งที่ดีที่สุดให้ลูกค้า ไม่ใช่ดันของให้หมดสต็อก จุดนี้คือเส้นแบ่งความน่าเชื่อถือระยะยาว</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">฿</span>สถาปัตยกรรมราคา (Price Architecture)</h3>
+      <p class="sub">วิธี "วาง" ราคา สำคัญพอๆ กับตัวเลขราคา</p>
+      <div class="principle"><b>กฎ 3 ตัวเลือก:</b> คนส่วนใหญ่เลี่ยงตัวถูกสุด (กลัวได้น้อย) และตัวแพงสุด (กลัวเปลือง) แล้วเลือก "ตัวกลาง" — เราจึงออกแบบให้ตัวกลางคือยอดที่อยากปิดพอดี</div>
+      <div class="tiers">
+        <div class="tier"><div class="tname">1 เซ็ต</div><div class="tdesc">ราคาเริ่มต้น<br>ลูกค้ามักรู้สึกว่า "น้อยไป"</div></div>
+        <div class="tier best"><span class="flag">★ คนเลือกเยอะสุด</span><div class="tname">2 เซ็ต</div><div class="tdesc">คุ้มที่สุด เฉลี่ยถูกลง<br>= ยอดที่เราอยากปิด</div></div>
+        <div class="tier"><div class="tname">3 เซ็ต</div><div class="tdesc">คุ้มสุดแต่ก้อนใหญ่<br>ทำให้ตัวกลางดู "พอดี"</div></div>
+      </div>
+      <ul class="clean">
+        <li><b>Anchoring (หย่อนสมอ):</b> พูดราคาเต็มก่อนเสมอ แล้วค่อยลง เพื่อให้ราคาโปร "ดูลดเยอะ" — สมองตัดสินจากตัวเลขแรกที่ได้ยิน</li>
+        <li><b>Loss Aversion (กลัวเสียมากกว่าอยากได้):</b> เปลี่ยนจาก "รับวันนี้ได้ส่วนลด" เป็น "ถ้าพลาดรอบนี้ ราคานี้ไม่มีอีกแล้วนะครับ น่าเสียดายมาก"</li>
+      </ul>
+      <div class="trick"><span class="ic">📊</span><div><b>ทริคจาก Trainer:</b> เสนอ 3 ตัวเลือกเสมอ อย่าเสนอแบบเดียว และอย่ารีบทิ้งตัวกลาง — ปล่อยให้ลูกค้ารู้สึกว่าตัวกลางคือ "ทางเลือกที่ฉลาดที่สุดที่เขาเลือกเอง"</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 10 ถาม–ฟัง–สะท้อนใจ ============ -->
+  <section class="panel" data-p="10">
+    <div class="sec-head">
+      <div class="sec-kicker">Advanced Questioning &amp; Empathy</div>
+      <h2>ศิลปะการถาม &amp; การสะท้อนใจขั้นสูง</h2>
+      <p>ในคัมภีร์มี "ถามติดตามผล 3 ชั้น" แล้ว ส่วนนี้คือชั้นที่ลึกที่สุด — ทำให้ลูกค้า "รู้สึกถึงปัญหา" เองและรู้สึกว่าเราเข้าใจเขาถึงก้นบึ้ง</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">A</span>คำถามขยายผลกระทบ (Implication)</h3>
+      <p class="sub">ทำให้ลูกค้าเห็นต้นทุนของ "การไม่ทำอะไรเลย" ด้วยตัวเอง</p>
+      <div class="convo">
+        <div class="bubble cust"><div class="av">ลค.</div><div class="msg"><span class="who">ลูกค้า</span>นอนไม่หลับมานานแล้ว</div></div>
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span>แล้วพอนอนไม่พอแบบนี้ <em>ตอนกลางวันมีผลกับงานหรืออารมณ์คุณพี่ไหมครับ</em>... เป็นมานานแบบนี้ ร่างกายมันสะสมนะครับ</div></div>
+        <div class="bubble cust"><div class="av">ลค.</div><div class="msg"><span class="who">ลูกค้า</span>ก็เพลียทั้งวัน หงุดหงิดง่ายขึ้นด้วย</div></div>
+      </div>
+      <div class="trick"><span class="ic">🔍</span><div><b>ทริคจาก Trainer:</b> พอลูกค้าพูด "ผลกระทบ" ออกมาเอง เขาจะ <em>รู้สึก</em>ถึงปัญหา ไม่ใช่แค่รับรู้ — แล้วค่อยเสนอสินค้าเป็น "ทางออก" การขายจะง่ายขึ้นมาก</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">B</span>ติดป้ายอารมณ์ (Labeling)</h3>
+      <p class="sub">พูดความกังวลของลูกค้าออกมาแทนเขา</p>
+      <div class="principle">เมื่อเราพูดสิ่งที่เขากำลังรู้สึกออกมาก่อน เขาจะรู้สึก <b>"ถูกเข้าใจ"</b> และกำแพงลดลงทันที</div>
+      <div class="convo">
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span><em>ฟังดูเหมือนคุณพี่เคยเจอประสบการณ์ไม่ดีกับการซื้อทางโทรมาก่อนใช่ไหมครับ</em> ผมเข้าใจเลยครับ</div></div>
+        <div class="bubble cust"><div class="av">ลค.</div><div class="msg"><span class="who">ลูกค้า</span>ใช่ เคยโดนมาแล้ว เลยระวัง</div></div>
+      </div>
+      <div class="trick"><span class="ic">🏷️</span><div><b>ทริคจาก Trainer:</b> ขึ้นต้นด้วย "ฟังดูเหมือน..." / "ดูเหมือนว่า..." จะนุ่มกว่าฟันธง พอเขายอมรับ เรารู้ข้อโต้แย้งตัวจริงและแก้ตรงจุดได้เลย</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">C</span>ทวน 3 คำท้าย (Mirroring)</h3>
+      <p class="sub">ทวนคำลูกค้าเบาๆ แล้วเงียบ ให้เขาอธิบายต่อเอง</p>
+      <div class="convo">
+        <div class="bubble cust"><div class="av">ลค.</div><div class="msg"><span class="who">ลูกค้า</span>มันแพงไป</div></div>
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span><em>แพงไป...?</em> (แล้วเงียบรอ)</div></div>
+        <div class="bubble cust"><div class="av">ลค.</div><div class="msg"><span class="who">ลูกค้า</span>คือเดือนนี้จ่ายค่าเทอมหลานไปเยอะ...</div></div>
+      </div>
+      <div class="trick"><span class="ic">🪞</span><div><b>ทริคจาก Trainer:</b> ทวนแค่ 1-3 คำท้ายของลูกค้า แล้ว <em>เงียบ</em> — เขาจะเผยเหตุผลจริงที่ซ่อนอยู่ ("แพง" เพราะอะไร) ซึ่งเราเอาไปใช้ปิดได้ตรงจุด</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">D</span>เป้าหมายคือ "ใช่เลย!" ไม่ใช่ "ครับๆ"</h3>
+      <div class="swap">
+        <div class="col bad">
+          <div class="lbl">🚫 "ครับๆ" (เออออเอาตัวรอด)</div>
+          <p class="q">ลูกค้าตอบรับแบบเสียไม่ได้ ใจยังไม่เปิด รอจังหวะวางสาย — ปิดไปก็เสี่ยงปฏิเสธปลายทาง</p>
+        </div>
+        <div class="col good">
+          <div class="lbl">✓ "ใช่เลย! ตรงเลย!" (เห็นด้วยจากใจ)</div>
+          <p class="q">ลูกค้ารู้สึกว่าเราเข้าใจเขาจริง ใจเปิดแล้ว — นี่คือสัญญาณเขียวให้เดินหน้าปิดได้</p>
+        </div>
+      </div>
+      <div class="trick"><span class="ic">💚</span><div><b>ทริคจาก Trainer:</b> ฟังให้ออกว่าลูกค้า "เห็นด้วยจากใจ" หรือ "เออออไปงั้น" ถ้ายังเป็นแบบหลัง อย่ารีบปิด ให้กลับไปสร้างความเข้าใจด้วย Labeling อีกที</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 11 อ่านคน & เสียงขั้นเทพ ============ -->
+  <section class="panel" data-p="11">
+    <div class="sec-head">
+      <div class="sec-kicker">Read People &amp; Tonality</div>
+      <h2>อ่านคน &amp; การส่งเสียงขั้นเทพ</h2>
+      <p>Top Sales อ่านลูกค้าจาก 2-3 ประโยคแรกแล้วเปลี่ยนวิธีขายทันที และคุม "เสียง-จังหวะ-พลังงาน" ได้เหมือนนักดนตรีคุมเครื่องดนตรี</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">A</span>4 บุคลิกลูกค้า — อ่านแล้วปรับทันที</h3>
+      <div class="persona">
+        <div class="pcard"><h4>⚡ สายรีบ / ใจร้อน</h4><div class="ptag">ปรับ → เข้าโปรไว สรุปสั้น</div><p>ตัดน้ำท่วมทุ่ง เน้นผลลัพธ์ตรงๆ <b>"เอาสั้นๆ เลยนะครับ คุ้มตรงนี้ๆ"</b> เขาซื้อเพราะไม่เสียเวลา</p></div>
+        <div class="pcard"><h4>😄 สายช่างคุย / อารมณ์ดี</h4><div class="ptag">ปรับ → คุยเล่นด้วย สร้างความสนิท</div><p>เล่าเรื่อง หยอกได้ แล้วค่อยปิด <b>เขาซื้อเพราะ "ถูกคอ"</b> กับเรา</p></div>
+        <div class="pcard"><h4>🍵 สายใจเย็น / กลัวเปลี่ยน</h4><div class="ptag">ปรับ → ย้ำความปลอดภัย ไม่เร่ง</div><p>ชู COD ค้ำประกัน ให้ความมั่นคง <b>"ไม่ต้องรีบครับ ของถึงค่อยจ่าย สบายใจได้เลย"</b></p></div>
+        <div class="pcard"><h4>🧐 สายขอข้อมูลละเอียด</h4><div class="ptag">ปรับ → ตอบครบ มีเหตุผล ตัวเลขชัด</div><p>อย่ากลบเกลื่อน <b>เขาซื้อเพราะ "ข้อมูลแน่น"</b> น่าเชื่อถือ</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">B</span>คุมโทนเสียงขั้นสูง (Tonality)</h3>
+      <div class="swap">
+        <div class="col bad">
+          <div class="lbl">🚫 ขึ้นเสียงท้าย = ลังเล ขออนุญาต</div>
+          <p class="q">"จัดส่งให้นะคะ↑" → ฟังเหมือนคำถามที่รอลูกค้าอนุมัติ เปิดช่องให้ปฏิเสธ</p>
+        </div>
+        <div class="col good">
+          <div class="lbl">✓ ลงเสียงท้าย = มั่นใจ บอกเล่า</div>
+          <p class="q">"จัดส่งให้ตามที่อยู่เดิมนะครับ↓" → ฟังเหมือนขั้นตอนปกติที่กำลังจะเกิด</p>
+        </div>
+      </div>
+      <ul class="clean">
+        <li><b>ความเงียบหลังถามปิด:</b> ถาม Choice Close แล้ว <em>เงียบ</em> อย่าพูดต่อ — ใครพูดก่อนเสียเปรียบ คนที่ทนความเงียบไม่ได้แล้วพูดแก้ตัว มักขายตัวเองออกจากดีล</li>
+        <li><b>ส่งต่อความมั่นใจ 3 ชั้น:</b> ลูกค้าจะเชื่อก็ต่อเมื่อเรามั่นใจใน (1) ตัวสินค้า (2) ตัวเราเอง (3) บริษัท — สั่นชั้นไหนลูกค้าจับได้หมด</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">C</span>กายภาพ &amp; พลังงานของเสียง (Physical Game)</h3>
+      <p class="sub">สิ่งที่ลูกค้าไม่เห็น แต่ได้ยินหมด</p>
+      <ul class="clean">
+        <li><b>ยืนโทรตอนปิดดีลใหญ่:</b> กระบังลมเปิด เสียงมีพลังและความมั่นใจขึ้นจริง</li>
+        <li><b>จิบน้ำอุ่น ไม่ใช่น้ำเย็น:</b> น้ำเย็นทำเส้นเสียงหด น้ำอุ่นช่วยให้เสียงนุ่มลื่นตลอดวัน</li>
+        <li><b>พักเสียงเป็นรอบ:</b> ช่วงบ่ายที่เสียงเริ่มตก ยอดมักตกตาม — บริหารพลังเสียงเหมือนนักกีฬาบริหารแรง</li>
+        <li><b>นั่งตัวตรง มือขยับประกอบ:</b> ภาษากายส่งผ่านสายได้ นั่งหลังค่อมหน้าเบื่อ เสียงจะห่อเหี่ยวตาม</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">D</span>จังหวะ &amp; การเว้น (Pacing &amp; Pausing)</h3>
+      <ul class="clean">
+        <li><b>เงียบเชิงกลยุทธ์ 3 จุด:</b> หลังบอกราคาโปร / หลังถามปิด / หลังลูกค้าพูดข้อโต้แย้ง — เว้น 2-3 วิ บีบให้ลูกค้าคิดและพูดต่อ</li>
+        <li><b>เร่ง-ผ่อนตามเนื้อหา:</b> ช่วงห่วงใยพูดช้านุ่ม → ปูโปรเร่งให้ตื่นเต้น → ราคา/ที่อยู่ช้าลงให้ชัด → ปิดมั่นคงหนักแน่น</li>
+        <li><b>"พูดช้าลง" คือเทคนิคของคนมั่นใจ:</b> คนประหม่าพูดเร็ว คนมีอำนาจพูดช้า เว้นจังหวะได้</li>
+      </ul>
+      <div class="trick"><span class="ic">🤫</span><div><b>ทริคจาก Trainer:</b> มือใหม่กลัวความเงียบเลยพูดกลบ ทำลายแรงกดดันที่กำลังทำงานอยู่ — ฝึก "อยู่กับความเงียบ" ให้ได้ แล้วยอดจะมาเอง</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 12 เล่าเรื่อง & เร่งด่วน ============ -->
+  <section class="panel" data-p="12">
+    <div class="sec-head">
+      <div class="sec-kicker">Storytelling &amp; Ethical Urgency</div>
+      <h2>เล่าเรื่องให้เห็นภาพ &amp; เร่งด่วนแบบมีจริยธรรม</h2>
+      <p>คนไทยเชื่อ "ปากต่อปาก" มากกว่าโฆษณา และตอบสนองต่อความเร่งด่วน — แต่ต้องเป็นความเร่งด่วน "จริง" ที่พูดได้อย่างสบายใจ</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">A</span>โครงเรื่องที่ขายได้ (Storytelling Framework)</h3>
+      <div class="principle"><b>ตัวละครคล้ายลูกค้า → เคยมีปัญหาเดียวกัน → เคยลังเลเหมือนกัน → ลองแล้ว → ชีวิตเปลี่ยน</b></div>
+      <div class="convo">
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span>มีคุณป้าวัยใกล้ๆ คุณพี่เลยครับ แก<em>ปวดเข่าเดินไม่ค่อยไหว</em> (ปัญหาเดียวกัน) ตอนแรกก็<em>ลังเลเหมือนกัน</em>ครับ (สะท้อนใจลูกค้า) แต่พอลองทานต่อเนื่องเดือนนึง โทรมาบอกว่า<em>เดินขึ้นบันไดได้สบายขึ้นเยอะ</em>เลยครับ</div></div>
+      </div>
+      <ul class="clean">
+        <li><b>รายละเอียดเฉพาะ = ความจริง:</b> วัย / อาการ / ระยะเวลา ยิ่งเจาะจง ยิ่งคล้ายลูกค้า ยิ่งทรงพลัง</li>
+        <li><b>เล่าความลังเลของตัวละครด้วย:</b> ทำให้ลูกค้ารู้สึกว่า "ลังเลแบบฉันก็ปกติ และคนแบบฉันก็ตัดสินใจซื้อแล้วได้ผล"</li>
+      </ul>
+      <div class="trick"><span class="ic">📖</span><div><b>ทริคจาก Trainer:</b> ห้ามแต่งเรื่องเกินจริงหรือเคลมผลเกินสรรพคุณเด็ดขาด เล่าได้เฉพาะเรื่องจริงในกรอบที่สินค้าทำได้จริงเท่านั้น</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">B</span>ความเร่งด่วนที่ถูกจริยธรรม (Ethical Urgency)</h3>
+      <p class="sub">ทุกความเร่งด่วนต้องมีเหตุผลจริงรองรับ ถ้าลูกค้าถามย้อนต้องตอบได้ไม่สะดุด</p>
+      <ul class="clean">
+        <li><b>โปรรอบนี้จริง:</b> "ราคานี้เป็นรอบพิเศษจริงๆ ครับ ปกติไม่ได้มีตลอด"</li>
+        <li><b>ของแถมจำกัดจริง:</b> "ของแถมตัวนี้เหลือไม่เยอะ ถ้าหมดก็ต้องเป็นตัวอื่นแทนครับ"</li>
+        <li><b>สิทธิ์เฉพาะกลุ่มจริง:</b> "อันนี้กันไว้ให้ลูกค้าเก่าโดยเฉพาะ ลูกค้าใหม่ไม่ได้ราคานี้ครับ"</li>
+        <li><b>เหตุผลตามฤดูกาลจริง:</b> "ช่วงนี้อากาศเปลี่ยน คนไม่สบายเยอะ ของขายดีออกไว อยากให้คุณพี่รีบจองไว้ก่อน"</li>
+      </ul>
+      <div class="trick"><span class="ic">⚖️</span><div><b>ทริคจาก Trainer:</b> ความเร่งด่วนปลอมพังความเชื่อใจถาวร แต่ความเร่งด่วนจริงคือเครื่องมือที่ทรงพลังและพูดได้เต็มปาก — ใช้แต่ของจริงเท่านั้นครับ</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 13 ปิด–เพิ่มยอด–ถอย ============ -->
+  <section class="panel" data-p="13">
+    <div class="sec-head">
+      <div class="sec-kicker">Advanced Closing &amp; Order Value</div>
+      <h2>ปิดขั้นสูง · เพิ่มยอดต่อบิล · ถอยอย่างมือโปร</h2>
+      <p>นอกจาก Assumptive/Choice Close ในคัมภีร์ ยังมีท่าปิดอีกหลายแบบเลือกใช้ตามจังหวะ และศิลปะการ "เพิ่มยอด" กับ "ถอยให้ได้ออเดอร์" แทนการเสียลูกค้าเปล่า</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">A</span>คลังท่าปิดขั้นสูง (Advanced Closes)</h3>
+      <ul class="clean">
+        <li><b>Summary Close (สรุปทบความคุ้ม):</b> "เอาเป็นว่าคุณพี่ได้งาดำ 1 เซ็ต + ของแถม + ส่งฟรี + ราคาพิเศษกว่าทีวี ทั้งหมดนี้เก็บปลายทางนะครับ" — ความคุ้มที่กองรวมกันทำให้ตัดสินใจง่าย</li>
+        <li><b>Puppy Dog Close (ลองก่อน):</b> "ลองทานดูก่อนก็ได้ครับ ถ้าไม่ถูกใจค่อยว่ากัน" — ใช้คู่ COD ลดความเสี่ยงในใจลูกค้าได้ดีมาก</li>
+        <li><b>Minor Point Close (ปิดที่เรื่องเล็ก):</b> "ของแถมเอาเป็นตัว A หรือ B ดีครับ" — พอตอบเรื่องของแถม เท่ากับตกลงซื้อไปแล้วโดยไม่รู้ตัว</li>
+        <li><b>Urgency Close (เร่งด่วนจริง):</b> "วันนี้วันสุดท้ายของโปรพอดีเลยครับ" — ใช้เมื่อเป็นเรื่องจริงเท่านั้น</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">B</span>เพิ่มยอดต่อบิล (Maximize Order Value)</h3>
+      <p class="sub">หลังลูกค้าตกลงตัวหลักแล้ว คือจังหวะที่ใจเปิดที่สุด</p>
+      <div class="convo">
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span>เพิ่มอีกนิดเดียวเป็น 2 เซ็ต <em>คุ้มกว่าเยอะเลยครับ</em> เฉลี่ยถูกลงไปอีก ทานได้ยาวไม่ต้องสั่งบ่อย แล้ว<em>ทานงาดำคู่กับวิตามินซี</em>จะดูแลได้รอบด้านขึ้น วันนี้แลกซื้อราคาพิเศษครับ</div></div>
+      </div>
+      <ul class="clean">
+        <li><b>Up-sell:</b> ขยับขึ้นเซ็ตใหญ่ ("เพิ่มนิดเดียว คุ้มกว่าเยอะ")</li>
+        <li><b>Cross-sell:</b> จับคู่สินค้าที่เสริมกัน เป็น "ชุดดูแลครบเซ็ต"</li>
+        <li><b>กฎสำคัญ:</b> ถ้าลูกค้าปฏิเสธชัด <em>อย่าดันจนเสียออเดอร์หลัก</em> เก็บที่ได้ไว้ก่อน</li>
+      </ul>
+      <div class="trick"><span class="ic">📈</span><div><b>ทริคจาก Trainer:</b> เสนอเพิ่มยอด "หลัง" ลูกค้าตกลงตัวหลักเท่านั้น เสนอตอนยังลังเลจะทำให้เขาคิดมากทั้งก้อนแล้วถอยทั้งดีล</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">C</span>ถอยอย่างมือโปร (Down-sell)</h3>
+      <p class="sub">ปิดเซ็ตใหญ่ไม่ได้ ≠ วางสายเปล่า — มีข้อเสนอสำรองเสมอ</p>
+      <div class="convo">
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span>เข้าใจครับ งั้น<em>ลองตัวเล็กสุดเป็นชุดทดลองก่อน</em>ก็ได้ครับ ราคาเบาๆ ทานดูว่าถูกใจไหม ถ้าโอเคค่อยรับเซ็ตใหญ่รอบหน้าครับ</div></div>
+      </div>
+      <div class="trick"><span class="ic">🪜</span><div><b>ทริคจาก Trainer:</b> ได้ออเดอร์เล็กดีกว่าศูนย์ และเปิดประตูขายซ้ำรอบหน้า — ลูกค้าที่ลองแล้วถูกใจ คือลูกค้าเซ็ตใหญ่ในอนาคต</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 14 กู้สาย & ลูกค้ายาก ============ -->
+  <section class="panel" data-p="14">
+    <div class="sec-head">
+      <div class="sec-kicker">Recovery &amp; Difficult Customers</div>
+      <h2>กู้สายที่กำลังจะเสีย &amp; รับมือลูกค้ายาก</h2>
+      <p>จังหวะที่ลูกค้าใกล้วางสาย มือใหม่ปล่อย Top Sales กู้กลับ — และลูกค้าเจ้าปัญหาไม่ใช่ลูกค้าที่เสีย แต่คือลูกค้าที่ยังรอวิธีรับมือที่ถูก</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">A</span>เทคนิคฟื้นสาย (Recovery Tactics)</h3>
+      <ul class="clean">
+        <li><b>The Last Question:</b> ก่อนลูกค้าวาง ขอถามนุ่มๆ "ก่อนวางสาย ขออนุญาตถามนิดนึงครับ คือติดตรงราคา หรือว่ายังไม่มั่นใจในตัวสินค้าครับ" — คำตอบจะเผยข้อโต้แย้งตัวจริง</li>
+        <li><b>แยกข้ออ้างออกจากเหตุผลจริง:</b> "ไม่มีเงิน/ไม่ว่าง" มักเป็นข้ออ้างสุภาพ เหตุผลจริงคือ "ยังไม่เชื่อ/ยังไม่อยากได้" — แก้ที่เหตุผลจริง ไม่ใช่ข้ออ้าง</li>
+        <li><b>เปิดทางถอยอย่างสง่างาม:</b> "ไม่เป็นไรเลยครับคุณพี่ ไว้รอบหน้ามีโปรดีๆ ผมโทรมาแจ้งใหม่นะครับ" — รักษาประตูไว้ขายรอบหน้า</li>
+      </ul>
+      <div class="trick"><span class="ic">🛟</span><div><b>ทริคจาก Trainer:</b> The Last Question ทรงพลังเพราะลูกค้าที่ "กำลังจะวาง" จะการ์ดลง พูดความจริงออกมาง่ายขึ้น — เราจึงได้โอกาสแก้ที่จุดจริงอีกครั้ง</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">B</span>ลูกค้าเจ้าปัญหา 4 แบบ</h3>
+      <p class="sub">กดดูวิธีรับมือแต่ละแบบได้เลยครับ</p>
+
+      <details class="obj" open>
+        <summary><span class="qmark">ยาก</span>ลูกค้าโมโห / เคยมีปัญหา<span class="caret">⌄</span></summary>
+        <div class="body">
+          <div class="yesand"><span class="tag yes">รับมือ</span><div>ปล่อยให้เขาระบายจนจบก่อน <b>ห้ามขัด</b> แล้วค่อยติดป้ายอารมณ์: "ผมเข้าใจเลยครับว่าคุณพี่หงุดหงิด ใครเจอแบบนี้ก็รับไม่ได้" — พอรู้สึกถูกเข้าใจ อารมณ์จะลง</div></div>
+        </div>
+      </details>
+
+      <details class="obj">
+        <summary><span class="qmark">ยาก</span>ลูกค้าต่อราคาหนัก<span class="caret">⌄</span></summary>
+        <div class="body">
+          <div class="yesand"><span class="tag and">รับมือ</span><div><b>อย่าลดราคาง่ายๆ</b> (ลดง่าย ลูกค้าจะรู้สึกว่าราคาแรกหลอก) ให้ "เพิ่มคุณค่า" แทน เช่น แถมเพิ่ม / ส่งฟรี / ของพิเศษ ดีกว่าหั่นราคา</div></div>
+        </div>
+      </details>
+
+      <details class="obj">
+        <summary><span class="qmark">ยาก</span>ลูกค้าเงียบ ไม่ตอบ<span class="caret">⌄</span></summary>
+        <div class="body">
+          <div class="yesand"><span class="tag yes">รับมือ</span><div>ถามคำถามปลายเปิดสั้นๆ ดึงให้พูด "คุณพี่ว่ายังไงบ้างครับ" แล้ว <b>เงียบรอ</b> — ความเงียบของเราบีบให้เขาตอบ</div></div>
+        </div>
+      </details>
+
+      <details class="obj">
+        <summary><span class="qmark">ยาก</span>ลูกค้าพูดมาก ออกนอกเรื่อง<span class="caret">⌄</span></summary>
+        <div class="body">
+          <div class="yesand"><span class="tag and">รับมือ</span><div>สายช่างคุยปิดง่าย แต่ต้อง "ดึงกลับ" นุ่มๆ: "ใช่เลยครับคุณพี่ๆ ... เดี๋ยวเรื่องนั้นคุยต่อได้ พอดีผมกลัวคุณพี่พลาดโปรนี้ ขอแจ้งตรงนี้ก่อนนะครับ"</div></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ 15 วินัย & พัฒนาตัวเอง ============ -->
+  <section class="panel" data-p="15">
+    <div class="sec-head">
+      <div class="sec-kicker">Discipline &amp; Self-growth</div>
+      <h2>เกมตัวเลข · เมตริก · จดโน้ต · พัฒนาตัวเอง</h2>
+      <p>สิ่งที่มืออาชีพรู้แต่มือใหม่ไม่รู้ — ยอดขายไม่ได้มาจากดวง แต่มาจากวินัย ตัวเลข และระบบที่ทำซ้ำได้ทุกวัน</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">A</span>เกมตัวเลข &amp; ช่วงเวลาทอง</h3>
+      <ul class="clean">
+        <li><b>รู้ funnel ตัวเอง:</b> กดกี่สาย ติดกี่สาย ปิดได้กี่ดีล — พอรู้อัตราส่วน การโดนปฏิเสธจะไม่บั่นทอนใจ เพราะมันคือ "ต้นทุน" ที่นำไปสู่ยอดที่แน่นอน</li>
+        <li><b>ช่วงเวลาทองของคนไทย:</b> เลี่ยงเวลากินข้าว/พักเที่ยง · ผู้สูงวัยรับสายดีช่วงสายๆ-บ่ายต้น · วัยทำงานช่วงเย็นหลังเลิกงาน</li>
+        <li><b>วินัยการกดสายต่อ:</b> อย่ายืดเวลาระหว่างสาย ยิ่งคิดมากยิ่งกลัว โมเมนตัมคือทุกอย่าง</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">B</span>มาตรวัดที่ Top Sales ดูเอง</h3>
+      <p class="sub">มือใหม่ดูแค่ "ปิดได้/ไม่ได้" — Top Sales ดูลึกกว่า</p>
+      <ul class="clean">
+        <li><b>Talk-to-Listen Ratio:</b> เราพูดมากไปไหม ควรฟัง ≥ 50% ของสาย</li>
+        <li><b>อัตราปิดต่อสายที่ติด:</b> ไม่ใช่ต่อสายที่กดทั้งหมด — แยก "คนรับน้อย" ออกจาก "ปิดไม่เก่ง"</li>
+        <li><b>ยอดเฉลี่ยต่อบิล (AOV):</b> ปิดได้เยอะแต่บิลเล็ก = พลาด Up-sell</li>
+        <li><b>อัตราซื้อซ้ำของลูกค้าที่เราดูแล:</b> ตัวชี้วัดที่แท้จริงของ Top Sales</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">C</span>ระบบจดโน้ตลูกค้า — อาวุธลับ</h3>
+      <p class="sub">สิ่งที่ทำให้สายที่สองง่ายกว่าสายแรก 10 เท่า</p>
+      <div class="convo">
+        <div class="bubble staff"><div class="av">พน.</div><div class="msg"><span class="who">พนักงาน</span>คุณพี่สมศรี <em>เข่าที่เคยปวด</em>ดีขึ้นไหมครับ คราวก่อนคุณพี่บอกขอปรึกษาลูกก่อน เป็นไงบ้างครับ ลูกว่ายังไง</div></div>
+        <div class="bubble cust"><div class="av">ลค.</div><div class="msg"><span class="who">ลูกค้า</span>โอ้ จำได้ด้วย! ดีขึ้นนะ ลูกก็โอเคแล้ว</div></div>
+      </div>
+      <ul class="clean">
+        <li><b>จดทุกสาย:</b> ชื่อเล่น / อาการสุขภาพ / สินค้าที่เคยซื้อ / ของที่ชอบ / นิสัยการพูด / เหตุผลที่ปฏิเสธ / เวลาที่รับสายสะดวก</li>
+        <li><b>คำปฏิเสธรอบที่แล้ว = แผนที่รอบนี้:</b> ตามต่อจากจุดเดิม ไม่เริ่มจากศูนย์</li>
+      </ul>
+      <div class="trick"><span class="ic">🗂️</span><div><b>ทริคจาก Trainer:</b> ลูกค้าตะลึงที่เราจำเขาได้ = รู้สึกเป็นคนพิเศษ = เปิดใจซื้อง่ายขึ้นมาก นี่คือสิ่งที่เครื่องตอบรับอัตโนมัติทำไม่ได้</div></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">D</span>พัฒนาตัวเอง &amp; เรียนจากทีม</h3>
+      <ul class="clean">
+        <li><b>อัดเสียงตัวเองฟังย้อน:</b> วิธีพัฒนาที่เร็วที่สุด เทียบสายที่ปิดได้กับปิดไม่ได้ว่าต่างตรงไหน</li>
+        <li><b>ขโมยของดีจากเพื่อนร่วมทีม:</b> ฟังว่า Top Sales เปิดสาย/แก้ข้อโต้แย้ง/ปิดยังไง แล้วปรับเป็นสไตล์ตัวเอง</li>
+        <li><b>เก็บคลังประโยคเด็ด (Swipe File):</b> เจอประโยคที่ลูกค้าตอบสนองดี จดไว้ สะสมเป็นคลังอาวุธ</li>
+        <li><b>ฝึกข้อโต้แย้งใหม่ทุกอัน:</b> เจอข้อที่ตอบไม่ได้ จดไว้ กลับมาคิดคำตอบที่ดีที่สุด ครั้งหน้าจะไม่พลาด</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 16 จริยธรรมสุขภาพ ============ -->
+  <section class="panel" data-p="16">
+    <div class="sec-head">
+      <div class="sec-kicker">Ethics · หัวใจของสินค้าสุขภาพ</div>
+      <h2>จริยธรรมการขายสินค้าสุขภาพ</h2>
+      <p>ข้อนี้สำคัญที่สุด เพราะลูกค้าเราจำนวนมากเป็นผู้สูงอายุ และเป็นสินค้าเกี่ยวกับสุขภาพ — เทคนิคทุกอย่างจะทรงพลังก็ต่อเมื่อตั้งอยู่บนความจริงใจที่อยากให้ลูกค้าได้ของดีจริง</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="chip">!</span>คำที่พูดได้ vs คำต้องห้ามเด็ดขาด</h3>
+      <div class="swap">
+        <div class="col good">
+          <div class="lbl">✓ พูดได้ (เสริมอาหาร)</div>
+          <p class="q">ดูแล · บำรุง · ส่งเสริม</p>
+          <p class="q">ช่วยให้รู้สึกสบายตัวขึ้น</p>
+        </div>
+        <div class="col bad">
+          <div class="lbl">🚫 ห้ามเด็ดขาด (ผิดกฎ อย.)</div>
+          <p class="q">รักษา · หาย · หายขาด</p>
+          <p class="q">แทนยา · ป้องกันโรค</p>
+        </div>
+      </div>
+      <div class="trick"><span class="ic">⚖️</span><div><b>ทริคจาก Trainer:</b> เคลมเกินจริงครั้งเดียว เสี่ยงทั้งคดี อย. และทำลายความน่าเชื่อถือบริษัทถาวร พูดในกรอบที่สินค้าทำได้จริงเท่านั้นครับ</div></div>
+    </div>
+
+    <div class="donts" style="margin-bottom:8px">
+      <div class="dont"><h4>✕ เคลมสรรพคุณเกินจริง</h4><p>อาหารเสริมไม่ใช่ยา ห้ามพูดว่ารักษา/หายขาด/แทนยา เด็ดขาด</p></div>
+      <div class="dont"><h4>✕ ขายด้วยความกลัว</h4><p>ห้ามขู่ให้กลัวโรคเพื่อให้ซื้อ ใช้ความห่วงใยเชิงบวกแทน</p></div>
+      <div class="dont"><h4>✕ ฉวยโอกาสกับผู้สูงอายุ</h4><p>ถ้าลูกค้าฟังดูสับสน ตัดสินใจเองไม่ได้จริงๆ การ "ไม่ดันปิด" คือความเป็นมืออาชีพ</p></div>
+      <div class="dont"><h4>✕ เปิดเผยข้อมูลลูกค้า (PDPA)</h4><p>ข้อมูลลูกค้าเก่าใช้ในขอบเขตที่ได้รับอนุญาต ไม่ส่งต่อ/เปิดเผยให้ผู้อื่น</p></div>
+      <div class="dont"><h4>✕ ปกปิดเรื่องราคา/จัดส่ง</h4><p>พูดตรงเรื่องวันส่ง ยอดที่ต้องจ่าย ไม่มีค่าใช้จ่ายแอบแฝง</p></div>
+      <div class="dont"><h4>✕ ดันปิดลูกค้าที่ไม่เข้าใจ</h4><p>ลูกค้าที่ถูกกดดันจะปฏิเสธรับของปลายทาง เสียทั้งของและชื่อบริษัท</p></div>
+    </div>
+
+    <div class="card" style="background:linear-gradient(100deg,var(--teal-tint),#EAF6F4);border-color:#C8E2DD">
+      <h3><span class="chip" style="background:var(--teal);color:#fff">★</span>แก่นสรุปของคัมภีร์ทั้งเล่ม</h3>
+      <div class="principle" style="border-left-color:var(--teal);background:#fff">ขายเก่งระยะสั้นคือ "ปิดให้ได้" — แต่ <b>Top Sales ตัวจริงคือ "สร้างลูกค้าที่กลับมาซื้อซ้ำและบอกต่อ"</b> ลูกค้าคนไทยจับได้เสมอว่าเราโทรมา "เพื่อช่วยเขา" หรือ "เพื่อเอายอด" — และนั่นแหละคือเส้นแบ่งระหว่างพนักงานขายทั่วไป กับ Top Sales ที่ลูกค้ารักและอยู่กับเราไปยาวๆ ครับ</div>
+    </div>
   </section>
 
   </div>
